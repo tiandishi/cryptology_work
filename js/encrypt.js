@@ -13,25 +13,29 @@ encrypt.config(['$routeProvider', '$locationProvider', '$sceProvider', function 
     }]);
 
 encrypt.controller('aes_encrypt', function ($scope, $location) {
-    alert("as");
-    $scope.aesss=function(){
-    var aa= $scope.init_code||"shisi";
-    var bb=$scope.secret_code||"mima";
-    var cc=$scope.length_code||128;
-    var encrypted = Aes.Ctr.encrypt(aa, bb,cc);
-    $scope.aes_code=encrypted;
-    
+
+
+
+    $scope.aesss = function () {
+
+        var aa = $scope.init_code || "shisi";
+        var bb = $scope.secret_code || "mima";
+        var cc = $scope.length_code || 128;
+
+        var test = new AES.Crypto(bb);//已My Password为密钥建立一个新的AES.Crypto对象.
+        $scope.aes_code = test.encrypt(aa);//返回一个16进制字符串,为使用相应密钥加密字符串123的结果
     }
 });
 
 encrypt.controller('aes_decrypt', function ($scope, $location) {
     //
-    $scope.aesss=function(){
-    var aa= $scope.init_code||"shisi";
-    var bb=$scope.secret_code||"mima";
-    var cc=$scope.length_code||128;
-    var encrypted = Aes.Ctr.decrypt(aa, bb,cc);
-    $scope.aes_code=encrypted;
-   
+    $scope.aesss = function () {
+        var aa = $scope.init_code || "shisi";
+        var bb = $scope.secret_code || "mima";
+        var cc = $scope.length_code || 128;
+
+        var test = new AES.Crypto(bb);//已My Password为密钥建立一个新的AES.Crypto对象.
+        $scope.aes_code = test.decrypt(aa);//返回一个16进制字符串,为使用相应密钥加密字符串123的结果
+
     }
 });

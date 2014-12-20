@@ -3,37 +3,41 @@
     <head>
         <meta charset="utf-8">
         <title>jimp</title>
-        <meta name="description" content="js图形处理">
+        <meta name="description" content="crypt_work">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body ng-app="encrypt" >
+         <p>
+            用Javascript实现AES的加密与解密,密钥长度128位(16字节)<br/>
+    当密钥长度在01字节到16字节时[8,128]Bits,密钥以0x00填充满16字节.<br/>
+    当密钥长度在16字节到24字节时(128,192]Bits,密钥以0x00填充满24字节.<br/>
+    当密钥长度在24字节到32字节时(192,256]Bits,密钥以0x00填充满32字节.<br/>
+    当密钥长度超过32字节时(256,+∞)Bits,密钥只取前32字节(128Bits).<br/>
+    仅支持ASCII字符.采用ECB模式加密<br/>
+        </p>
       <div ng-controller="aes_encrypt">
+          <p>加密</p>
           原字符串：
           <input ng-model="init_code" ng-change="aesss()"/>
-          密码：
+          密钥：
           <input ng-model="secret_code" ng-change="aesss()"/>
-          空间：
-          <input ng-model="length_code" ng-change="aesss()"/>
          <br/>
-          aes加密:{{aes_code}}
-          
-               
+          aes加密:{{aes_code}}            
+      </div>
+       <br/> <br/> <br/> <br/>
+        <div ng-controller="aes_decrypt">
+            <p>解密</p>
+          原字符串：
+          <input ng-model="init_code" ng-change="aesss()"/>
+          密钥：
+          <input ng-model="secret_code" ng-change="aesss()"/>
+          <br/>
+          aes解密:{{aes_code}}        
       </div>
         
-        <div ng-controller="aes_decrypt">
-          原字符串：
-          <input ng-model="init_code" ng-change="aesss()"/>
-          密码：
-          <input ng-model="secret_code" ng-change="aesss()"/>
-          空间：
-          <input ng-model="length_code" ng-change="aesss()"/>
-         <br/>
-          aes解密:{{aes_code}}
-               
-      </div>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
