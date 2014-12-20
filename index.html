@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <title>jimp</title>
+        <meta name="description" content="js图形处理">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body ng-app="encrypt" >
+      <div ng-controller="aes_encrypt">
+          原字符串：
+          <input ng-model="init_code" ng-change="aesss()"/>
+          密码：
+          <input ng-model="secret_code" ng-change="aesss()"/>
+          空间：
+          <input ng-model="length_code" ng-change="aesss()"/>
+         <br/>
+          aes加密:{{aes_code}}
+          
+               
+      </div>
+        
+        <div ng-controller="aes_decrypt">
+          原字符串：
+          <input ng-model="init_code" ng-change="aesss()"/>
+          密码：
+          <input ng-model="secret_code" ng-change="aesss()"/>
+          空间：
+          <input ng-model="length_code" ng-change="aesss()"/>
+         <br/>
+          aes解密:{{aes_code}}
+               
+      </div>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="js/aes.js"></script>
+         <script src="js/aes2.js"></script>
+        <script src="js/encrypt.js"></script>
+        <script src="js/md5.js"></script>
+
+    </body>
+</html>
